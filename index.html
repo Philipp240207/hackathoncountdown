@@ -114,16 +114,6 @@
 
   <p class="info" id="info">Start: Freitag, 20. November 2026, 10:30 Uhr</p>
 
-  <div class="packliste">
-    <h2>🎒 Packliste</h2>
-    <label><input type="checkbox"><span>Laptop + Ladekabel</span></label>
-    <label><input type="checkbox"><span>Mehrfachstecker</span></label>
-    <label><input type="checkbox"><span>Headset mit Mikrofon</span></label>
-    <label><input type="checkbox"><span>Handy + Powerbank (Hotspot als Backup)</span></label>
-    <label><input type="checkbox"><span>Wasserflasche + Snacks</span></label>
-    <label><input type="checkbox"><span>Ticket (Luma-QR-Code)</span></label>
-  </div>
-
   <script>
     // Startzeitpunkt des Hackathons (niederländische Zeit, UTC+1)
     const start = new Date("2026-11-20T10:30:00+01:00");
@@ -142,7 +132,7 @@
       const minutes = Math.floor(diff / 60000) % 60;
       const seconds = Math.floor(diff / 1000) % 60;
 
-      document.getElementById("days").textContent = days;
+      document.getElementByld("days").textContent = days;
       document.getElementById("hours").textContent = String(hours).padStart(2, "0");
       document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
       document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
