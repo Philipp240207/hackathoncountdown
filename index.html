@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hackathon Countdown</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1.5rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #1e1b4b, #0b0b12 70%);
+      color: #f5f5f7;
+      text-align: center;
+    }
+
+    .label {
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #a5b4fc;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 700;
+    }
+
+    .countdown {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .box {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 1.25rem 1rem;
+      min-width: 110px;
+    }
+
+    .number {
+      font-size: clamp(2.2rem, 7vw, 3.5rem);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .unit {
+      font-size: 0.85rem;
+      color: #a1a1aa;
+      margin-top: 0.25rem;
+    }
+
+    .info {
+      color: #a1a1aa;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <p class="label">Maastricht · OpenAI × ElevenLabs</p>
+  <h1>MAIN Summit Hackathon</h1>
+
+  <div class="countdown" id="countdown">
+    <div class="box"><div class="number" id="days">0</div><div class="unit">Tage</div></div>
+    <div class="box"><div class="number" id="hours">00</div><div class="unit">Stunden</div></div>
+    <div class="box"><div class="number" id="minutes">00</div><div class="unit">Minuten</div></div>
+    <div class="box"><div class="number" id="seconds">00</div><div class="unit">Sekunden</div></div>
+  </div>
+
+  <p class="info" id="info">Start: Freitag, 20. November 2026, 10:30 Uhr</p>
+
+  <script>
+    // Startzeitpunkt des Hackathons (niederländische Zeit, UTC+1)
+    const start = new Date("2026-11-20T10:30:00+01:00");
+
+    function update() {
+      const diff = start - new Date(); // verbleibende Zeit in Millisekunden
+
+      if (diff <= 0) {
+        document.getElementById("countdown").style.display = "none";
+        document.getElementById("info").textContent = "Los geht's! 🚀";
+        return;
+      }
+
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor(diff / 3600000) % 24;
+      const minutes = Math.floor(diff / 60000) % 60;
+      const seconds = Math.floor(diff / 1000) % 60;
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+    }
+
+    update();                    // sofort einmal anzeigen
+    setInterval(update, 1000);   // dann jede Sekunde aktualisieren
+  </script>
+
+</body>
+</html>
