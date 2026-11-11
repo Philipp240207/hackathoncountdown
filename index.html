@@ -64,6 +64,40 @@
       color: #a1a1aa;
       font-size: 0.95rem;
     }
+
+    .packliste {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 1.25rem 1.5rem;
+      text-align: left;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .packliste h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .packliste label {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.35rem 0;
+      cursor: pointer;
+    }
+
+    .packliste input {
+      width: 18px;
+      height: 18px;
+      accent-color: #a5b4fc;
+    }
+
+    .packliste input:checked + span {
+      text-decoration: line-through;
+      color: #71717a;
+    }
   </style>
 </head>
 <body>
@@ -79,6 +113,16 @@
   </div>
 
   <p class="info" id="info">Start: Freitag, 20. November 2026, 10:30 Uhr</p>
+
+  <div class="packliste">
+    <h2>🎒 Packliste</h2>
+    <label><input type="checkbox"><span>Laptop + Ladekabel</span></label>
+    <label><input type="checkbox"><span>Mehrfachstecker</span></label>
+    <label><input type="checkbox"><span>Headset mit Mikrofon</span></label>
+    <label><input type="checkbox"><span>Handy + Powerbank (Hotspot als Backup)</span></label>
+    <label><input type="checkbox"><span>Wasserflasche + Snacks</span></label>
+    <label><input type="checkbox"><span>Ticket (Luma-QR-Code)</span></label>
+  </div>
 
   <script>
     // Startzeitpunkt des Hackathons (niederländische Zeit, UTC+1)
